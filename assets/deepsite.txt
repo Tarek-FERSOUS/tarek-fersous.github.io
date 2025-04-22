@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Student Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        dark: '#111827',
+                        darker: '#0D1321',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #10B981;
+            transition: all 0.3s ease;
+        }
+        .profile-pic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+        }
+        .card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-left-color: #10B981;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        .skill-pill {
+            transition: all 0.2s ease;
+        }
+        .skill-pill:hover {
+            transform: scale(1.05);
+            background-color: #10B981;
+            color: white;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #10B981;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .contact-input:focus {
+            outline: none;
+            border-color: #10B981;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+        }
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #10B981;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #10B981; }
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-200 font-sans">
+    <header class="sticky top-0 z-50 bg-darker shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profile" class="profile-pic">
+                <h1 class="text-2xl font-bold text-primary">John Doe</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <button class="md:hidden text-primary">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="about" class="mb-20">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-4xl font-bold mb-4">Hi, I'm <span class="text-primary">John Doe</span></h2>
+                    <h3 class="text-2xl mb-6 typewriter">Computer Science Student</h3>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Passionate about software development, machine learning, and creating innovative solutions to real-world problems. Currently pursuing my degree while working on exciting projects that push the boundaries of technology.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact" class="bg-primary hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                            Contact Me
+                        </a>
+                        <a href="#" class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://img.freepik.com/free-vector/hand-drawn-web-developers_23-2148819604.jpg" alt="Developer Illustration" class="w-full max-w-md rounded-lg shadow-xl">
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="mb-20">
+            <h2 class="text-3xl font-bold mb-10 text-center relative">
+                <span class="bg-darker px-4 relative z-10">Work Experience</span>
+                <span class="absolute left-0 right-0 top-1/2 h-px bg-gray-700 -z-0"></span>
+            </h2>
+            
+            <div class="space-y-8">
+                <div class="card bg-darker p-6 rounded-lg">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-bold text-primary">Software Developer Intern</h3>
+                        <span class="text-gray-400">Summer 2023</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Tech Solutions Inc.</h4>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>Developed and maintained web applications using React and Node.js</li>
+                        <li>Collaborated with cross-functional teams to implement new features</li>
+                        <li>Optimized database queries, improving application performance by 30%</li>
+                        <li>Participated in code reviews and agile development processes</li>
+                    </ul>
+                </div>
+                
+                <div class="card bg-darker p-6 rounded-lg">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-bold text-primary">Research Assistant</h3>
+                        <span class="text-gray-400">2022 - Present</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">University AI Lab</h4>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>Assisted in developing machine learning models for image recognition</li>
+                        <li>Collected and preprocessed datasets for training purposes</li>
+                        <li>Published research paper on "Improving CNN Efficiency"</li>
+                        <li>Presented findings at the annual Computer Science Symposium</li>
+                    </ul>
+                </div>
+                
+                <div class="card bg-darker p-6 rounded-lg">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-bold text-primary">Freelance Developer</h3>
+                        <span class="text-gray-400">2021 - 2022</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Self-Employed</h4>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>Built custom websites for small businesses and startups</li>
+                        <li>Created responsive designs with HTML, CSS, and JavaScript</li>
+                        <li>Implemented SEO strategies to improve client visibility</li>
+                        <li>Managed project timelines and client communications</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="mb-20">
+            <h2 class="text-3xl font-bold mb-10 text-center relative">
+                <span class="bg-darker px-4 relative z-10">Education</span>
+                <span class="absolute left-0 right-0 top-1/2 h-px bg-gray-700 -z-0"></span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card bg-darker p-6 rounded-lg">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-primary">Bachelor of Science in Computer Science</h3>
+                        <span class="text-gray-400">2021 - 2025</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">State University</h4>
+                    <p class="text-gray-300 mb-4">GPA: 3.8/4.0</p>
+                    <div class="space-y-2">
+                        <p class="font-medium">Relevant Coursework:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full text-sm">Data Structures</span>
+                            <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full text-sm">Algorithms</span>
+                            <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full text-sm">Machine Learning</span>
+                            <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full text-sm">Database Systems</span>
+                            <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full text-sm">Computer Networks</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card bg-darker p-6 rounded-lg">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-primary">High School Diploma</h3>
+                        <span class="text-gray-400">2017 - 2021</span>
+                    </div>
+                    <h4 class="text-lg font-semibold mb-2">Tech Magnet High School</h4>
+                    <p class="text-gray-300 mb-4">GPA: 4.0/4.0</p>
+                    <div class="space-y-2">
+                        <p class="font-medium">Achievements:</p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                            <li>Valedictorian</li>
+                            <li>National Coding Competition Winner</li>
+                            <li>Robotics Club President</li>
+                            <li>Science Fair 1st Place</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-20">
+            <h2 class="text-3xl font-bold mb-10 text-center relative">
+                <span class="bg-darker px-4 relative z-10">Technical Skills</span>
+                <span class="absolute left-0 right-0 top-1/2 h-px bg-gray-700 -z-0"></span>
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card bg-darker p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-primary mb-4 flex items-center">
+                        <i class="fas fa-code mr-2"></i> Programming Languages
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Python</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>JavaScript</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Java</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>C++</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card bg-darker p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-primary mb-4 flex items-center">
+                        <i class="fas fa-laptop-code mr-2"></i> Web Development
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">HTML5</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">CSS3</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">JavaScript</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">React</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">Node.js</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">Express</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">MongoDB</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">REST APIs</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">Tailwind CSS</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">Git</span>
+                    </div>
+                </div>
+                
+                <div class="card bg-darker p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-primary mb-4 flex items-center">
+                        <i class="fas fa-brain mr-2"></i> Data Science & AI
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">Python</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">NumPy</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">Pandas</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">Matplotlib</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">Scikit-learn</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">TensorFlow</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">Keras</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">Data Visualization</span>
+                        <span class="skill-pill bg-gray-800 text-gray-200 px-3 py-1 rounded-full">SQL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="mb-20">
+            <h2 class="text-3xl font-bold mb-10 text-center relative">
+                <span class="bg-darker px-4 relative z-10">Get In Touch</span>
+                <span class="absolute left-0 right-0 top-1/2 h-px bg-gray-700 -z-0"></span>
+            </h2>
+            
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <div class="card bg-darker p-6 rounded-lg h-full">
+                        <h3 class="text-xl font-bold text-primary mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-primary mt-1">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <a href="mailto:john.doe@example.com" class="text-gray-300 hover:text-primary transition">john.doe@example.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="text-primary mt-1">
+                                    <i class="fas fa-phone text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <a href="tel:+1234567890" class="text-gray-300 hover:text-primary transition">+1 (234) 567-890</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="text-primary mt-1">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Location</h4>
+                                    <p class="text-gray-300">San Francisco, CA</p>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-4">
+                                <h4 class="font-semibold mb-4">Connect with me</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="card bg-darker p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-primary mb-6">Send Me a Message</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block mb-2 font-medium">Name</label>
+                                <input type="text" id="name" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Your name">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block mb-2 font-medium">Email</label>
+                                <input type="email" id="email" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Your email">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block mb-2 font-medium">Subject</label>
+                                <input type="text" id="subject" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Subject">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block mb-2 font-medium">Message</label>
+                                <textarea id="message" rows="5" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Your message"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-darker py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-xl font-bold text-primary">John Doe</h2>
+                    <p class="text-gray-400">Computer Science Student & Developer</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 John Doe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.querySelector('button.md\\:hidden');
+        const navLinks = document.querySelector('nav.hidden');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('flex');
+            navLinks.classList.toggle('flex-col');
+            navLinks.classList.toggle('absolute');
+            navLinks.classList.toggle('top-16');
+            navLinks.classList.toggle('right-6');
+            navLinks.classList.toggle('bg-darker');
+            navLinks.classList.toggle('p-4');
+            navLinks.classList.toggle('rounded-lg');
+            navLinks.classList.toggle('shadow-lg');
+            navLinks.classList.toggle('space-y-4');
+            navLinks.classList.toggle('space-x-8');
+        });
+
+        // Animation for skill pills on hover
+        const skillPills = document.querySelectorAll('.skill-pill');
+        skillPills.forEach(pill => {
+            pill.addEventListener('mouseenter', () => {
+                pill.classList.add('transform', 'scale-105');
+            });
+            pill.addEventListener('mouseleave', () => {
+                pill.classList.remove('transform', 'scale-105');
+            });
+        });
+
+        // Form submission handling
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
