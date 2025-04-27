@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarek's Portfolio</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -100,7 +101,7 @@
                         <a href="#contact" class="bg-primary hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
                             Contact Me
                         </a>
-                        <a href="#" class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+                        <a href="files/Resume Tarek FERSOUS EN.pdf" class="border border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-lg font-medium transition duration-300 target="_blank" download>
                             Download CV
                         </a>
                     </div>
@@ -341,16 +342,16 @@
                             <div class="pt-4">
                                 <h4 class="font-semibold mb-4">Connect with me</h4>
                                 <div class="flex space-x-4">
-                                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition">
+                                    <a href="https://www.linkedin.com/in/tarek-fersous" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition">
                                         <i class="fab fa-linkedin-in"></i>
                                     </a>
-                                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition">
+                                    <a href="https://github.com/Tarek-FERSOUS" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition">
                                         <i class="fab fa-github"></i>
                                     </a>
                                     <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition">
                                         <i class="fab fa-twitter"></i>
                                     </a>
-                                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition">
+                                    <a href="https://www.instagram.com/tareex__" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-primary hover:text-white transition">
                                         <i class="fab fa-instagram"></i>
                                     </a>
                                 </div>
@@ -365,24 +366,20 @@
                         <form class="space-y-4">
                             <div>
                                 <label for="name" class="block mb-2 font-medium">Name</label>
-                                <input type="text" id="name" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Your name">
+                                <input type="text" id="name" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Your name" required>
                             </div>
-                            
                             <div>
                                 <label for="email" class="block mb-2 font-medium">Email</label>
-                                <input type="email" id="email" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Your email">
+                                <input type="email" id="email" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Your email" required>
                             </div>
-                            
                             <div>
                                 <label for="subject" class="block mb-2 font-medium">Subject</label>
-                                <input type="text" id="subject" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Subject">
+                                <input type="text" id="subject" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Subject" required>
                             </div>
-                            
                             <div>
                                 <label for="message" class="block mb-2 font-medium">Message</label>
-                                <textarea id="message" rows="5" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Your message"></textarea>
+                                <textarea id="message" rows="5" class="contact-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:border-primary" placeholder="Your message" required></textarea>
                             </div>
-                            
                             <button type="submit" class="w-full bg-primary hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300">
                                 Send Message
                             </button>

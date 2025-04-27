@@ -1,12 +1,30 @@
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.classList.add('header-shrink');
+    } else {
+        header.classList.remove('header-shrink');
+    }    
+});    
+
+
+
+
+
+
+
+
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
-        });
-    });
-});
+        });    
+    });    
+});    
 
 // Mobile menu toggle functionality
 const mobileMenuButton = document.querySelector('button.md\\:hidden');
@@ -26,37 +44,53 @@ mobileMenuButton.addEventListener('click', () => {
     navLinks.classList.toggle('shadow-lg');
     navLinks.classList.toggle('space-y-4');
     navLinks.classList.toggle('space-x-8');
-});
+});    
 
 // Animation for skill pills on hover
 const skillPills = document.querySelectorAll('.skill-pill');
 skillPills.forEach(pill => {
     pill.addEventListener('mouseenter', () => {
         pill.classList.add('transform', 'scale-105');
-    });
+    });    
     pill.addEventListener('mouseleave', () => {
         pill.classList.remove('transform', 'scale-105');
-    });
-});
+    });    
+});    
 
+
+
+
+
+
+emailjs.init(woXTXHqSkqNXSOxO1); // Replace "YOUR_USER_ID" with your EmailJS user ID
 // Form submission handling
 const contactForm = document.querySelector('form');
+
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Thank you for your message! I will get back to you soon.');
-        contactForm.reset();
+
+        // Collect form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        // Send the email using EmailJS
+        emailjs.send("service_ygglxqk","template_n76ezwh",{
+            name: name,
+            email: email,
+            subject: subject,
+            message: message,
+        }).then(
+            (response) => {
+                alert("Message sent successfully!");
+                contactForm.reset(); // Clear the form
+            },
+            (error) => {
+                alert("Failed to send the message. Please try again.");
+                console.error("EmailJS Error:", error);
+            }
+        );
     });
 }
-
-const header = document.querySelector('header');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.classList.add('header-shrink');
-    } else {
-        header.classList.remove('header-shrink');
-    }
-});
-
-
