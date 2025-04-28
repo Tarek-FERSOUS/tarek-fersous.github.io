@@ -45,6 +45,9 @@
 .nav-link:hover::after {
     width: 100%;
 }
+
+
+
 .contact-input:focus {
     outline: none;
     border-color: #10B981;
