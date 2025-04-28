@@ -70,20 +70,47 @@
     50% { border-color: #10B981; }
 }
 .header-shrink {
-    height: 80%; /* Shrink header height by 20% */
+    height: 70%; /* Shrink header height by 30% */
     transition: all 0.3s ease;
 }
+
 .header-shrink .profile-pic {
-    width: 120px; /* Shrink profile picture by 20% */
-    height: 120px;
+    width: 105px; /* Shrink profile picture by 30% */
+    height: 105px;
 }
+
 .header-shrink h1 {
-    font-size: 1.6rem; /* Shrink font size of the name */
+    font-size: 1.4rem; /* Shrink font size of the name by 30% */
 }
+
 .header-shrink .px-6 {
-    padding-left: 1rem; /* Adjust padding for alignment */
-    padding-right: 1rem;
+    padding-left: 0.8rem; /* Adjust padding for alignment */
+    padding-right: 0.8rem;
 }
+
+
+
+
+header {
+    background-color: rgba(74, 74, 74, 0.1); /* Light translucent background */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    border-bottom: none; /* Optional: Add a subtle border */
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    transition: all 0.3s ease; /* Smooth transition for effects */
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

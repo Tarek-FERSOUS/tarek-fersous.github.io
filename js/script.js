@@ -5,8 +5,8 @@ window.addEventListener('scroll', () => {
         header.classList.add('header-shrink');
     } else {
         header.classList.remove('header-shrink');
-    }    
-});    
+    }
+});
 
 
 
@@ -56,8 +56,6 @@ skillPills.forEach(pill => {
         pill.classList.remove('transform', 'scale-105');
     });    
 });    
-
-
 
 
 
