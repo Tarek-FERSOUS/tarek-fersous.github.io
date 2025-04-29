@@ -1,3 +1,50 @@
+// Track site visit
+fetch('/api/visit')
+  .then(res => res.json())
+  .then(data => {
+    console.log("Visits:", data.visits);
+  });
+
+// Track button clicks
+const contactBtn = document.getElementById("contact-btn");
+if (contactBtn) {
+  contactBtn.addEventListener("click", () => {
+    fetch('/api/click', { method: 'POST' })
+      .then(res => res.json())
+      .then(data => {
+        console.log("Button Clicks:", data.clicks);
+      });
+  });
+}
+
+// Track link clicks
+const downloadCVLink = document.getElementById("visit-link");
+if (downloadCVLink) {
+  downloadCVLink.addEventListener("click", function (e) {
+    // Prevent the default behavior of the link
+    e.preventDefault();
+
+    // Send a POST request to track the click
+    fetch('/api/visit-link-click', { method: 'POST' })
+        .then(() => {
+            // Trigger the file download manually
+            const link = document.createElement('a');
+            link.href = this.href;
+            link.download = ''; // Use the filename from the server
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        })
+        .catch(error => {
+            console.error("Error tracking link click:", error);
+        });
+  });
+}
+
+
+
+
+
 const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
@@ -12,6 +59,10 @@ window.addEventListener('scroll', () => {
 
 // Select all cards
 const cards = document.querySelectorAll('.card');
+
+
+
+
 
 // Create an Intersection Observer
 const observer = new IntersectionObserver((entries) => {
@@ -28,6 +79,7 @@ const observer = new IntersectionObserver((entries) => {
 cards.forEach(card => {
     observer.observe(card);
 });
+
 
 
 
