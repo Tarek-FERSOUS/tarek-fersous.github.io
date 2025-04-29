@@ -10,7 +10,24 @@ window.addEventListener('scroll', () => {
 
 
 
+// Select all cards
+const cards = document.querySelectorAll('.card');
 
+// Create an Intersection Observer
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible'); // Add the 'visible' class when in view
+        }
+    });
+}, {
+    threshold: 0.2 // Trigger when 20% of the card is visible
+});
+
+// Observe each card
+cards.forEach(card => {
+    observer.observe(card);
+});
 
 
 

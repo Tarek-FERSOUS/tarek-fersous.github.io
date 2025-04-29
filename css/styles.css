@@ -12,6 +12,21 @@
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
 }
+
+/* Initial state for cards (hidden and translated) */
+.card {
+    opacity: 0;
+    transform: translateY(50px); /* Start slightly below */
+    transition: all 0.9s ease-out; /* Smooth transition */
+}
+
+/* When the card is visible */
+.card.visible {
+    opacity: 1;
+    transform: translateY(0); /* Slide into place */
+}
+
+
 .card {
     transition: all 0.3s ease;
     border-left: 4px solid transparent;
@@ -61,12 +76,12 @@
     margin: 0 auto;
     letter-spacing: .15em;
     animation: 
-        typing 3.5s steps(40, end),
+        typing 2s steps(40, end),
         blink-caret .75s step-end infinite;
 }
 @keyframes typing {
     from { width: 0 }
-    to { width: 60% }
+    to { width: 50% }
 }
 @keyframes blink-caret {
     from, to { border-color: transparent }
