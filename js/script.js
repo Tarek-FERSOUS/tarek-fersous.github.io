@@ -1,5 +1,5 @@
 // Track site visit
-fetch('/api/visit')
+fetch('https://stormy-falls-63105-f7d6321358b0.herokuapp.com/api/visit')
   .then(res => res.json())
   .then(data => {
     console.log("Visits:", data.visits);
@@ -9,7 +9,7 @@ fetch('/api/visit')
 const contactBtn = document.getElementById("contact-btn");
 if (contactBtn) {
   contactBtn.addEventListener("click", () => {
-    fetch('/api/click', { method: 'POST' })
+    fetch('https://stormy-falls-63105-f7d6321358b0.herokuapp.com/api/click', { method: 'POST' })
       .then(res => res.json())
       .then(data => {
         console.log("Button Clicks:", data.clicks);
@@ -25,7 +25,7 @@ if (downloadCVLink) {
     e.preventDefault();
 
     // Send a POST request to track the click
-    fetch('/api/visit-link-click', { method: 'POST' })
+    fetch('https://stormy-falls-63105-f7d6321358b0.herokuapp.com/api/visit-link-click', { method: 'POST' })
         .then(() => {
             // Trigger the file download manually
             const link = document.createElement('a');
